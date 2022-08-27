@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>NGOs</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body>
+    <footer id="footer">
+        <section>
+            <form method="post" name="google-sheet">
+                <h1>FEEDBACK FORM</h1>
+                <div class="fields">
+                    <div class="field">
+                        <label for="name">Name</label>
+                        <input type="text" name="Name" id="name" />
+                    </div>
+                    <div class="field">
+                        <label for="email" >Email</label>
+                        <input type="text" name="Email" id="email" />
+                    </div>
+                    <div class="field">
+                        <label for="Age">Age</label>
+                        <input type="number" name="Age" id="Age" />
+                    </div>
+                    <div class="field">
+                        <label for="Number">Contact Number</label>
+                        <input type="tel" name="Number" id="Number"  pattern="+91 [7-9]{2}-[0-9]{3}-[0-9]{4}" value="+91" />
+                    </div>
+                    <div class="field">
+                        <label for="PrgrmCourse" style="font-size:30px"><strong>3.  Which course has student joined after 10th? </strong></label><br>
+                            <input type="radio" id="yes11" name="PrgrmCourse" value="Yes">
+                            <label for="yes11"style="font-size:25px">Medical</label><br>
+                           <input type="radio" id="no7" name="PrgrmCourse" value="No">
+                            <label for="no11"style="font-size:25px">Non-Medical</label><br>
+                           <input type="radio" id="partially11" name="PrgrmCourse" value="Partially">
+                            <label for="partially11"style="font-size:25px">Commerce</label><br>
+                            <input type="radio" id="partily11" name="PrgrmCourse" value="Partially">
+                            <label for="partily11"style="font-size:25px">Arts</label>
+                    </div>
+                    <div class="field">
+                        <label for="PrgrmRea" style="font-size:30px"><strong>4.	Why did he/she choose to join the above?</strong></label><br>
+                        <textarea id="PrgmRea" name="PrgmRea" rows="4" cols="50"style="font-size:25px">Your Descriptive feedback</textarea>
+                    </div>
+                    <div class="field">
+                        <label for="PrgrmUse" style="font-size:30px"><strong>5.	Was the workshop useful and other resources from DreamPath useful? </strong></label><br>
+                            <input type="radio" id="yes12" name="PrgrmUse" value="Yes">
+                            <label for="yes12"style="font-size:25px">Yes</label><br>
+                           <input type="radio" id="no12" name="PrgrmUse" value="No">
+                            <label for="no12"style="font-size:25px">No</label><br>
+                    </div>
+                    <button type="button" class="btn" value="Submit" name="Submit">Submit</button>
+                </div>
+                    
+                
+            </form>
+
+           			<script src="assets/js/jquery.min.js"></script>
+                       <script src="assets/js/jquery.scrollex.min.js"></script>
+                       <script src="assets/js/jquery.scrolly.min.js"></script>
+                       <script src="assets/js/browser.min.js"></script>
+                       <script src="assets/js/breakpoints.min.js"></script>
+                       <script src="assets/js/util.js"></script>
+                       <script src="assets/js/main.js"></script>
+                       <script>
+                        const scriptURL = 'https://script.google.com/macros/s/AKfycbxPyoM_SWZ4dW0aj6PQ6ec3SQJcEjC26EZ5ZeUrdvhWPyliWjtjJEGtXinFrh-cjmxC/exec'
+                        const form = document.forms['google-sheet']
+                      
+                        form.addEventListener('submit', e => {
+                          e.preventDefault()
+                          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                            .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                            .catch(error => console.error('Error!', error.message))
+                        })
+                      </script>
+</body>
+</html>
